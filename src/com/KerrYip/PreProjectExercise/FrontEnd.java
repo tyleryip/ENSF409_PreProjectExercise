@@ -4,8 +4,13 @@ public class FrontEnd {
 
 	
 	public static void main(String [] args) {
-		System.out.println("Hello world");
-		System.out.println("I need Kyra");
+		FileManager fm = new FileManager();
+		String[] classList = fm.readFromScanner();
+		int i = 0;
+		while(i < classList.length){
+			System.out.println(classList[i]);
+			i++;
+		}
 	}
 	
 	

@@ -13,8 +13,7 @@ public class FileManager{
         return filename;
     }
 
-    public String[] readFromScanner(){
-        String filename = getFilename();
+    public String[] readFromScanner(String filename){
         String line = "";
         try {
             File file = new File(filename);

@@ -12,6 +12,7 @@ public class GUI extends JFrame{
 	
 	public GUI(String s) {
 		super(s);
+		super.setSize(1200, 800);
 		
 		setLayout(new BorderLayout());
 		b1 = new JButton("Insert");

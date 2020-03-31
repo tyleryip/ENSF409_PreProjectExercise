@@ -1,6 +1,7 @@
 package com.KerrYip.PreProjectExercise;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,6 +24,20 @@ public class GUI extends JFrame{
 		this.add("South", b3);
 		this.add("South", b4);
 		
+		b1.addActionListener((ActionEvent e) -> {
+			System.out.println("Submit");
+		});
+		
+		b2.addActionListener((ActionEvent e) -> {
+			System.out.println("Cancel");
+		});
+		
+		b3.addActionListener((ActionEvent e) -> {
+			System.out.println("Browse");
+		});
+		b4.addActionListener((ActionEvent e) -> {
+			System.out.println("Create Tree From File");
+		});
 		
 		setVisible(true);
 	}

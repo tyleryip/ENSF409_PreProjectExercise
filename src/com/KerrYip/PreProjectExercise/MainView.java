@@ -3,23 +3,21 @@ package com.KerrYip.PreProjectExercise;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.WindowConstants;
+import javax.swing.*;
+
 /**
  * This code represents the main view of the Application
  * @author tyleryip
+ * @author kerrmwill
  *
  */
 @SuppressWarnings("serial")
 public class MainView extends JFrame{
 
+	private BinSearchTree classTree;
 	private JButton b1, b2, b3, b4;
 	private JLabel titleLabel;
 	private JTextArea dataText;
@@ -45,7 +43,18 @@ public class MainView extends JFrame{
 			System.out.println("Browse");
 		});
 		b4.addActionListener((ActionEvent e) -> {
-			System.out.println("Create Tree From File");
+			String filename = JOptionPane.showInputDialog("Enter the file name:");
+			FileManager fm = new FileManager();
+			classTree = new BinSearchTree(fm.readFromFile(filename));
+
+			/*below is test
+			PrintWriter pw = new PrintWriter(System.out);
+			try {
+				classTree.print_tree(classTree.root, pw);
+			}catch(IOException eegriuui){
+				eegriuui.printStackTrace();
+			}
+			*/
 		});
 		
 		titleLabel = new JLabel();

@@ -18,6 +18,13 @@ class BinSearchTree {
 	public BinSearchTree() {
 		root = null;
 	}
+
+	public BinSearchTree(String[] classList){
+		for(int i = 0; i < classList.length; i++){
+			String[] temp = classList[i].trim().split("\\s+");
+			insert(temp[0],temp[1],temp[2],temp[3]);
+		}
+	}
 	
 	/**
 	 * the following method, inserts a new node that contains several data
@@ -55,6 +62,7 @@ class BinSearchTree {
 			}  
 		}
 	}
+
 	
 	/** 
 	 * Returns true if tree is empty 

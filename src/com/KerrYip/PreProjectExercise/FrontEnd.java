@@ -12,7 +12,7 @@ public class FrontEnd {
 //			i++;
 //		}
 
-		MainView gui = new MainView("Main Window");
+		MainView mainWindow = new MainView("Main Window");
 
 	}
 	

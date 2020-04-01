@@ -55,6 +55,7 @@ public class MainView extends JFrame{
 		dataText.setLineWrap(true); //Allows text to wrap if it reaches the end of the line
 		dataText.setWrapStyleWord(true); //text should wrap at word boundaries rather than character boundaries
 		dataText.setText("This is where we will import the data from the input text to display the students and their majors & faculty");
+		dataText.setEditable(false);
 		
 		JScrollPane dataTextScrollPane = new JScrollPane(dataText);
 		dataTextScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);

@@ -1,10 +1,13 @@
 package com.KerrYip.PreProjectExercise;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 /**
  * This class is for the GUI when the user presses the 
@@ -26,7 +29,7 @@ public class InsertView extends JFrame{
 	//Constructor for the InsertView JFrame
 	public InsertView(String s) {
 		super(s);
-		this.setSize(600, 600);
+		this.setSize(300, 300);
 		
 		//Button labels and initialization
 		b1 = new JButton("Insert");
@@ -35,6 +38,7 @@ public class InsertView extends JFrame{
 		//Button functionality
 		b1.addActionListener((ActionEvent e) -> {
 			System.out.println("Insert");
+			
 		});
 		
 		b2.addActionListener((ActionEvent e) -> {
@@ -58,7 +62,7 @@ public class InsertView extends JFrame{
 		yearLabel = new JLabel();
 		yearLabel.setText("Enter year");
 		
-		
+		//Set up the JTextAreas for inputting data
 		studentIDText = new JTextArea();
 		studentIDText.setLineWrap(true);
 		
@@ -71,7 +75,42 @@ public class InsertView extends JFrame{
 		yearText = new JTextArea();
 		yearText.setLineWrap(true);
 		
+		//Set up the panels to hold the components in certain areas of the frame
+		JPanel titlePanel = new JPanel();
+		JPanel buttonPanel = new JPanel();
+		JPanel inputPanel = new JPanel();
 		
+		titlePanel.add(titleLabel);
+		
+		buttonPanel.add(b1);
+		buttonPanel.add(b2);
+		
+		inputPanel.setLayout(new FlowLayout());
+		
+		inputPanel.add(studentIDLabel);
+		inputPanel.add(studentIDText);
+		inputPanel.add(facultyLabel);
+		inputPanel.add(facultyText);
+		
+		inputPanel.add(majorLabel);
+		inputPanel.add(majorText);
+		inputPanel.add(yearLabel);
+		inputPanel.add(yearText);
+		
+		
+		setLayout(new BorderLayout());
+		add("North", titlePanel);
+		add("Center", inputPanel);
+		add("South", buttonPanel);
+		
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//pack();
+		setVisible(true);
+	}
+	
+	public static void main(String [] args) {
+		InsertView test = new InsertView("Insert View");
 	}
 	
 }

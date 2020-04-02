@@ -11,6 +11,7 @@ public class FrontEnd {
 //			System.out.println(classList[i]);
 //			i++;
 //		}
+		
 
 		MainView mainWindow = new MainView("Main Window");
 

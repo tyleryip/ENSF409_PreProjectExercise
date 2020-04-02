@@ -19,6 +19,10 @@ class BinSearchTree {
 		root = null;
 	}
 
+	/**
+	 * the following constructor creates an tree from the input String array
+	 * @param classList the input String Array to be created in to empty
+	 */
 	public BinSearchTree(String[] classList){
 		for(int i = 0; i < classList.length; i++){
 			String[] temp = classList[i].trim().split("\\s+");
@@ -152,5 +156,30 @@ class BinSearchTree {
 		System.out.println(s);
 		if (cur.right!=null)
 			print_tree(cur.right,out);
-	} 
+	}
+
+	/**
+	 * Function that calls helper method to recursively place tree into a String
+	 * @return Returns the tree in a String
+	 */
+	@Override
+	public String toString(){
+		return toStringRecursive(root);
+	}
+
+	/**
+	 * Function that recursively places data into a String
+	 * @param cur - current node
+	 * @return Returns String containing the node and all nodes below it
+	 */
+	private String toStringRecursive(Node cur){
+		String s = "";
+		if (cur.left!=null)
+			s += toStringRecursive(cur.left);
+		s += cur.data.id+"        "+cur.data.faculty+"     "+
+				cur.data.major+ "       "+cur.data.year + "\n";
+		if (cur.right!=null)
+			s += toStringRecursive(cur.right);
+		return s;
+	}
 }

@@ -40,7 +40,7 @@ public class MainView extends JFrame{
 		});
 		
 		b3.addActionListener((ActionEvent e) -> {
-			System.out.println("Browse");
+			dataText.setText(classTree.toString());
 		});
 		b4.addActionListener((ActionEvent e) -> {
 			String filename = JOptionPane.showInputDialog("Enter the file name:");
@@ -63,6 +63,8 @@ public class MainView extends JFrame{
 		dataText = new JTextArea();
 		dataText.setLineWrap(true); //Allows text to wrap if it reaches the end of the line
 		dataText.setWrapStyleWord(true); //text should wrap at word boundaries rather than character boundaries
+		dataText.setEditable(false);
+		dataText.setSize(500,400);
 		dataText.setText("This is where we will import the data from the input text to display the students and their majors & faculty");
 		
 		JScrollPane dataTextScrollPane = new JScrollPane(dataText);
@@ -91,7 +93,7 @@ public class MainView extends JFrame{
 		dataTextScrollPane.setBorder(dataPanel.getBorder());
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		pack();
+		//pack();
 		setVisible(true);
 	}
 	

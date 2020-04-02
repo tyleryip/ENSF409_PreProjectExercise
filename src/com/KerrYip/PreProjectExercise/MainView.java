@@ -36,7 +36,13 @@ public class MainView extends JFrame{
 		});
 		
 		b2.addActionListener((ActionEvent e) -> {
-			System.out.println("Find");
+			String studentID = JOptionPane.showInputDialog("Please enter the student's id");
+			Node result = classTree.find(classTree.root,studentID);
+			if(result == null){
+				JOptionPane.showMessageDialog(null,"Target record was not found");
+			}else{
+				JOptionPane.showMessageDialog(null,result.toString());
+			}
 		});
 		
 		b3.addActionListener((ActionEvent e) -> {
@@ -46,25 +52,15 @@ public class MainView extends JFrame{
 			String filename = JOptionPane.showInputDialog("Enter the file name:");
 			FileManager fm = new FileManager();
 			classTree = new BinSearchTree(fm.readFromFile(filename));
-
-			/*below is test
-			PrintWriter pw = new PrintWriter(System.out);
-			try {
-				classTree.print_tree(classTree.root, pw);
-			}catch(IOException eegriuui){
-				eegriuui.printStackTrace();
-			}
-			*/
 		});
 		
 		titleLabel = new JLabel();
 		titleLabel.setText("An Application to Maintain Student Records");
 		
-		dataText = new JTextArea();
+		dataText = new JTextArea(15,40);
 		dataText.setLineWrap(true); //Allows text to wrap if it reaches the end of the line
 		dataText.setWrapStyleWord(true); //text should wrap at word boundaries rather than character boundaries
 		dataText.setEditable(false);
-		dataText.setSize(500,400);
 		dataText.setText("This is where we will import the data from the input text to display the students and their majors & faculty");
 		dataText.setEditable(false);
 		
@@ -94,7 +90,7 @@ public class MainView extends JFrame{
 		dataTextScrollPane.setBorder(dataPanel.getBorder());
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		//pack();
+		pack();
 		setVisible(true);
 	}
 	

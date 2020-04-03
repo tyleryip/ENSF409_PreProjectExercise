@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
 @SuppressWarnings("serial")
 public class InsertView extends JPanel{
 	
-	private MainView myMainView;
+	BinSearchTree classTree;
 
 	//Two buttons for insert and return to main window
 	private JButton b1, b2;
@@ -28,9 +28,9 @@ public class InsertView extends JPanel{
 	private JTextArea studentIDText, facultyText, majorText, yearText;
 	
 	//Constructor for the InsertView JFrame
-	public InsertView(int width, int height, MainView myMainView) {
+	public InsertView(int width, int height, BinSearchTree classTree) {
 		this.setSize(width, height);
-		this.myMainView = myMainView;
+		this.classTree = classTree;
 		
 		//Button labels and initialization
 		b1 = new JButton("Insert");
@@ -38,13 +38,10 @@ public class InsertView extends JPanel{
 		
 		//Button functionality
 		b1.addActionListener((ActionEvent e) -> {
-			if(studentIDText.getText() != null && facultyText.getText() != null &&
-					majorText.getText() != null && yearText.getText() != null) {
-				Node newNode = new Node(studentIDText.getText(), facultyText.getText(), majorText.getText(), yearText.getText());
-			
+			if(studentIDText.getText() != null && facultyText.getText() != null && majorText.getText() != null && yearText.getText() != null) {
+				classTree.insert(studentIDText.getText(), facultyText.getText(), majorText.getText(), yearText.getText());
+				System.out.println("Insert completed");
 			}
-			System.out.println("Insert");
-			
 		});
 		
 		b2.addActionListener((ActionEvent e) -> {

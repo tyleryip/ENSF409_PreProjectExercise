@@ -25,6 +25,8 @@ public class MainView extends JFrame{
 	public MainView(String s, int width, int height) {
 		super(s);
 		this.setSize(width, height);
+		
+		classTree = new BinSearchTree();
 	
 		b1 = new JButton("Insert");
 		b2 = new JButton("Find");
@@ -33,7 +35,7 @@ public class MainView extends JFrame{
 		
 		b1.addActionListener((ActionEvent e) -> {
 			System.out.println("Insert");
-			JOptionPane.showMessageDialog(this, new InsertView(width, height, this));
+			JOptionPane.showMessageDialog(this, new InsertView(width, height, classTree));
 		});
 		
 		b2.addActionListener((ActionEvent e) -> {

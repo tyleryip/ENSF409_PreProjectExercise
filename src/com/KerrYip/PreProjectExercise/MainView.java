@@ -85,8 +85,10 @@ public class MainView extends JFrame{
 		
 		b4.addActionListener((ActionEvent e) -> {
 			String filename = JOptionPane.showInputDialog("Enter the file name:");
-			FileManager fm = new FileManager();
-			classTree = new BinSearchTree(fm.readFromFile(filename));
+			if(filename != null) {
+				FileManager fm = new FileManager();
+				classTree = new BinSearchTree(fm.readFromFile(filename));
+			}
 		});
 		
 		titleLabel = new JLabel();

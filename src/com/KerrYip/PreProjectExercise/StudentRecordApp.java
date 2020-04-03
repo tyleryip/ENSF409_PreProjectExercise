@@ -11,6 +11,7 @@ public class StudentRecordApp {
 		@SuppressWarnings("unused")
 		MainView mainWindow = new MainView("Main Window", 600, 600);
 
+
 	}
 	
 	

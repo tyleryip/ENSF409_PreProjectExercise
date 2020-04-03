@@ -22,9 +22,9 @@ public class MainView extends JFrame{
 	private JLabel titleLabel;
 	private JTextArea dataText;
 	
-	public MainView(String s) {
+	public MainView(String s, int width, int height) {
 		super(s);
-		this.setSize(600, 600);
+		this.setSize(width, height);
 	
 		b1 = new JButton("Insert");
 		b2 = new JButton("Find");
@@ -33,6 +33,7 @@ public class MainView extends JFrame{
 		
 		b1.addActionListener((ActionEvent e) -> {
 			System.out.println("Insert");
+			JOptionPane.showMessageDialog(this, new InsertView(width, height, this));
 		});
 		
 		b2.addActionListener((ActionEvent e) -> {
@@ -48,6 +49,7 @@ public class MainView extends JFrame{
 		b3.addActionListener((ActionEvent e) -> {
 			dataText.setText(classTree.toString());
 		});
+		
 		b4.addActionListener((ActionEvent e) -> {
 			String filename = JOptionPane.showInputDialog("Enter the file name:");
 			FileManager fm = new FileManager();
@@ -90,7 +92,7 @@ public class MainView extends JFrame{
 		dataTextScrollPane.setBorder(dataPanel.getBorder());
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		pack();
+		//pack();
 		setVisible(true);
 	}
 	

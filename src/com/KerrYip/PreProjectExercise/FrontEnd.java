@@ -13,7 +13,7 @@ public class FrontEnd {
 //		}
 		
 
-		MainView mainWindow = new MainView("Main Window");
+		MainView mainWindow = new MainView("Main Window", 600, 600);
 
 	}
 	

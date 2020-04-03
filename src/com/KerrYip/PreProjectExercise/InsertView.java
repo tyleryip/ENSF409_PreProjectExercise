@@ -5,7 +5,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -15,7 +14,9 @@ import javax.swing.JTextArea;
  *
  */
 @SuppressWarnings("serial")
-public class InsertView extends JFrame{
+public class InsertView extends JPanel{
+	
+	private MainView myMainView;
 
 	//Two buttons for insert and return to main window
 	private JButton b1, b2;
@@ -27,9 +28,9 @@ public class InsertView extends JFrame{
 	private JTextArea studentIDText, facultyText, majorText, yearText;
 	
 	//Constructor for the InsertView JFrame
-	public InsertView(String s) {
-		super(s);
-		this.setSize(300, 300);
+	public InsertView(int width, int height, MainView myMainView) {
+		this.setSize(width, height);
+		this.myMainView = myMainView;
 		
 		//Button labels and initialization
 		b1 = new JButton("Insert");
@@ -37,6 +38,11 @@ public class InsertView extends JFrame{
 		
 		//Button functionality
 		b1.addActionListener((ActionEvent e) -> {
+			if(studentIDText.getText() != null && facultyText.getText() != null &&
+					majorText.getText() != null && yearText.getText() != null) {
+				Node newNode = new Node(studentIDText.getText(), facultyText.getText(), majorText.getText(), yearText.getText());
+			
+			}
 			System.out.println("Insert");
 			
 		});
@@ -67,7 +73,7 @@ public class InsertView extends JFrame{
 		studentIDText.setLineWrap(true);
 		
 		facultyText = new JTextArea();
-		facultyText.setLineWrap(true);
+		facultyText.setLineWrap(true);	
 		
 		majorText = new JTextArea();
 		majorText.setLineWrap(true);
@@ -103,14 +109,11 @@ public class InsertView extends JFrame{
 		add("Center", inputPanel);
 		add("South", buttonPanel);
 		
-		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		//pack();
 		setVisible(true);
 	}
 	
 	public static void main(String [] args) {
-		InsertView test = new InsertView("Insert View");
+		//InsertView test = new InsertView(600, 600);
 	}
 	
 }

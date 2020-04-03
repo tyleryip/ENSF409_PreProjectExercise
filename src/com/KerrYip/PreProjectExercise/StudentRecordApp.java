@@ -8,6 +8,7 @@ package com.KerrYip.PreProjectExercise;
 public class StudentRecordApp {
 	
 	public static void main(String [] args) {
+		@SuppressWarnings("unused")
 		MainView mainWindow = new MainView("Main Window", 600, 600);
 
 	}

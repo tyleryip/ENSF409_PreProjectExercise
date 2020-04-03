@@ -78,7 +78,7 @@ public class MainView extends JFrame{
 		});
 		
 		b3.addActionListener((ActionEvent e) -> {
-			if(!classTree.toString().contentEquals(null)) {
+			if(classTree.root != null) {
 				dataText.setText(classTree.toString());
 			}
 		});

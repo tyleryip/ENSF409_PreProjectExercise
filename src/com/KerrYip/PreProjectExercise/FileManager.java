@@ -16,9 +16,8 @@ public class FileManager{
      * @param filename name of the file being read from for the class list
      * @return Returns the class list in a String array with each class being String being a class
      */
-    public String[] readFromFile(String filename){
+    public String[] readFromFile(String filename) throws FileNotFoundException{
         String line = "";
-        try {
             File file = new File(filename);
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
@@ -26,9 +25,6 @@ public class FileManager{
             }
             scanner.close();
 
-        }catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
         return line.split("\0"); //returns a string array separating at all the \0 added in the while loop above
     }
 

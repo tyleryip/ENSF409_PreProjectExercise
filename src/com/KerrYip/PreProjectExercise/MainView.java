@@ -2,6 +2,7 @@ package com.KerrYip.PreProjectExercise;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -86,8 +87,12 @@ public class MainView extends JFrame{
 		b4.addActionListener((ActionEvent e) -> {
 			String filename = JOptionPane.showInputDialog("Enter the file name:");
 			if(filename != null) {
-				FileManager fm = new FileManager();
-				classTree = new BinSearchTree(fm.readFromFile(filename));
+				try {
+					FileManager fm = new FileManager();
+					classTree = new BinSearchTree(fm.readFromFile(filename));
+				}catch(FileNotFoundException ex){
+					JOptionPane.showMessageDialog(null,"File not found.");
+				}
 			}
 		});
 		

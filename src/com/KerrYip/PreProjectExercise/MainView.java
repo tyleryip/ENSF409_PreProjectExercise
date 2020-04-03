@@ -18,7 +18,7 @@ import javax.swing.*;
 public class MainView extends JFrame{
 
 	private BinSearchTree classTree;
-	private JButton b1, b2, b3, b4;
+	private JButton insertButton, findButton, browseButton, createButton;
 	private JLabel titleLabel;
 	private JTextArea dataText;
 
@@ -28,12 +28,12 @@ public class MainView extends JFrame{
 		
 		classTree = new BinSearchTree();
 	
-		b1 = new JButton("Insert");
-		b2 = new JButton("Find");
-		b3 = new JButton("Browse");
-		b4 = new JButton("Create Tree From File");
+		insertButton = new JButton("Insert");
+		findButton = new JButton("Find");
+		browseButton = new JButton("Browse");
+		createButton = new JButton("Create Tree From File");
 		
-		b1.addActionListener((ActionEvent e) -> {
+		insertButton.addActionListener((ActionEvent e) -> {
 			JPanel insertPanel = new JPanel();
 			insertPanel.setLayout(new BoxLayout(insertPanel, BoxLayout.PAGE_AXIS));
 			JPanel titlePanel = new JPanel();
@@ -68,7 +68,7 @@ public class MainView extends JFrame{
 			}
 		});
 		
-		b2.addActionListener((ActionEvent e) -> {
+		findButton.addActionListener((ActionEvent e) -> {
 			String studentID = JOptionPane.showInputDialog("Please enter the student's id");
 			Node result = classTree.find(classTree.root,studentID);
 			if(result == null){
@@ -78,13 +78,13 @@ public class MainView extends JFrame{
 			}
 		});
 		
-		b3.addActionListener((ActionEvent e) -> {
+		browseButton.addActionListener((ActionEvent e) -> {
 			if(classTree.root != null) {
 				dataText.setText(classTree.toString());
 			}
 		});
 		
-		b4.addActionListener((ActionEvent e) -> {
+		createButton.addActionListener((ActionEvent e) -> {
 			String filename = JOptionPane.showInputDialog("Enter the file name:");
 			if(filename != null) {
 				try {
@@ -116,10 +116,10 @@ public class MainView extends JFrame{
 
 		setLayout(new BorderLayout());
 		
-		buttonPanel.add(b1);
-		buttonPanel.add(b2);
-		buttonPanel.add(b3);
-		buttonPanel.add(b4);
+		buttonPanel.add(insertButton);
+		buttonPanel.add(findButton);
+		buttonPanel.add(browseButton);
+		buttonPanel.add(createButton);
 		
 		titlePanel.add(titleLabel);
 		dataPanel.add(dataTextScrollPane);

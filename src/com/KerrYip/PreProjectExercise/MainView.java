@@ -1,21 +1,29 @@
 package com.KerrYip.PreProjectExercise;
 
-import java.awt.*;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.swing.*;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 /**
  * This code represents the main view of the Application
+ * 
  * @author tyleryip
  * @author kerrmwill
  *
  */
 @SuppressWarnings("serial")
-public class MainView extends JFrame{
+public class MainView extends JFrame {
 
 	private BinSearchTree classTree;
 	private JButton insertButton, findButton, browseButton, createButton;
@@ -25,8 +33,9 @@ public class MainView extends JFrame{
 	public MainView(String s, int width, int height) {
 		super(s);
 		this.setSize(width, height);
-		
+
 		classTree = new BinSearchTree();
+<<<<<<< HEAD
 	
 		insertButton = new JButton("Insert");
 		findButton = new JButton("Find");
@@ -34,6 +43,15 @@ public class MainView extends JFrame{
 		createButton = new JButton("Create Tree From File");
 		
 		insertButton.addActionListener((ActionEvent e) -> {
+=======
+
+		b1 = new JButton("Insert");
+		b2 = new JButton("Find");
+		b3 = new JButton("Browse");
+		b4 = new JButton("Create Tree From File");
+
+		b1.addActionListener((ActionEvent e) -> {
+>>>>>>> a6788b5ca4467205958bd96b4a0eca3f0d8bd582
 			JPanel insertPanel = new JPanel();
 			insertPanel.setLayout(new BoxLayout(insertPanel, BoxLayout.PAGE_AXIS));
 			JPanel titlePanel = new JPanel();
@@ -53,30 +71,37 @@ public class MainView extends JFrame{
 			inputPanel2.add(new JLabel("Enter Student's Major"));
 			JTextField majorLabel = new JTextField(15);
 			inputPanel2.add(majorLabel);
-			inputPanel2.add("South",new JLabel("Enter year"));
+			inputPanel2.add("South", new JLabel("Enter year"));
 			JTextField yearLabel = new JTextField(5);
-			inputPanel2.add("South",yearLabel);
+			inputPanel2.add("South", yearLabel);
 			insertPanel.add(inputPanel2);
 
-			Object[] options = {"Insert", "Return to Main Window"};
+			Object[] options = { "Insert", "Return to Main Window" };
 
-			int result =  JOptionPane.showOptionDialog(null, insertPanel, "Insert a new Node",
+			int result = JOptionPane.showOptionDialog(null, insertPanel, "Insert a new Node",
 					JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
 
-			if(result == JOptionPane.OK_OPTION){
-				classTree.insert(studentIDLabel.getText(), facultyLabel.getText(), majorLabel.getText(), yearLabel.getText());
+			if (result == JOptionPane.OK_OPTION) {
+				classTree.insert(studentIDLabel.getText(), facultyLabel.getText(), majorLabel.getText(),
+						yearLabel.getText());
 			}
 		});
+<<<<<<< HEAD
 		
 		findButton.addActionListener((ActionEvent e) -> {
+=======
+
+		b2.addActionListener((ActionEvent e) -> {
+>>>>>>> a6788b5ca4467205958bd96b4a0eca3f0d8bd582
 			String studentID = JOptionPane.showInputDialog("Please enter the student's id");
-			Node result = classTree.find(classTree.root,studentID);
-			if(result == null){
-				JOptionPane.showMessageDialog(null,"Target record was not found");
-			}else{
-				JOptionPane.showMessageDialog(null,result.toString());
+			Node result = classTree.find(classTree.root, studentID);
+			if (result == null) {
+				JOptionPane.showMessageDialog(null, "Target record was not found");
+			} else {
+				JOptionPane.showMessageDialog(null, result.toString());
 			}
 		});
+<<<<<<< HEAD
 		
 		browseButton.addActionListener((ActionEvent e) -> {
 			if(classTree.root != null) {
@@ -85,54 +110,73 @@ public class MainView extends JFrame{
 		});
 		
 		createButton.addActionListener((ActionEvent e) -> {
+=======
+
+		b3.addActionListener((ActionEvent e) -> {
+			if (classTree.root != null) {
+				dataText.setText(classTree.toString());
+			}
+		});
+
+		b4.addActionListener((ActionEvent e) -> {
+>>>>>>> a6788b5ca4467205958bd96b4a0eca3f0d8bd582
 			String filename = JOptionPane.showInputDialog("Enter the file name:");
-			if(filename != null) {
+			if (filename != null) {
 				try {
 					FileManager fm = new FileManager();
 					classTree.insertList(fm.readFromFile(filename));
-				}catch(FileNotFoundException ex){
-					JOptionPane.showMessageDialog(null,"File not found.");
+				} catch (FileNotFoundException ex) {
+					JOptionPane.showMessageDialog(null, "File not found.");
 				}
 			}
 		});
-		
+
 		titleLabel = new JLabel();
 		titleLabel.setText("An Application to Maintain Student Records");
-		
-		dataText = new JTextArea(height/25,width/15);
-		dataText.setLineWrap(true); //Allows text to wrap if it reaches the end of the line
-		dataText.setWrapStyleWord(true); //text should wrap at word boundaries rather than character boundaries
+
+		dataText = new JTextArea(height / 25, width / 15);
+		dataText.setLineWrap(true); // Allows text to wrap if it reaches the end of the line
+		dataText.setWrapStyleWord(true); // text should wrap at word boundaries rather than character boundaries
 		dataText.setEditable(false);
-		dataText.setText(""); //This displays empty text in the field
+		dataText.setText(""); // This displays empty text in the field
 		dataText.setEditable(false);
-		
+
 		JScrollPane dataTextScrollPane = new JScrollPane(dataText);
 		dataTextScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		
-		//The following code sets up the panels and layout
+
+		// The following code sets up the panels and layout
 		JPanel buttonPanel = new JPanel();
 		JPanel titlePanel = new JPanel();
 		JPanel dataPanel = new JPanel();
 
 		setLayout(new BorderLayout());
+<<<<<<< HEAD
 		
 		buttonPanel.add(insertButton);
 		buttonPanel.add(findButton);
 		buttonPanel.add(browseButton);
 		buttonPanel.add(createButton);
 		
+=======
+
+		buttonPanel.add(b1);
+		buttonPanel.add(b2);
+		buttonPanel.add(b3);
+		buttonPanel.add(b4);
+
+>>>>>>> a6788b5ca4467205958bd96b4a0eca3f0d8bd582
 		titlePanel.add(titleLabel);
 		dataPanel.add(dataTextScrollPane);
-		
+
 		add("North", titlePanel);
 		add("Center", dataPanel);
 		add("South", buttonPanel);
-		
+
 		dataTextScrollPane.setBorder(dataPanel.getBorder());
-		
+
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		//pack();
+		// pack();
 		setVisible(true);
 	}
-	
+
 }

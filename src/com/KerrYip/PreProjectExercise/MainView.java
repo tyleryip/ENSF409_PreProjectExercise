@@ -21,7 +21,7 @@ public class MainView extends JFrame{
 	private JButton b1, b2, b3, b4;
 	private JLabel titleLabel;
 	private JTextArea dataText;
-	
+
 	public MainView(String s, int width, int height) {
 		super(s);
 		this.setSize(width, height);
@@ -34,8 +34,32 @@ public class MainView extends JFrame{
 		b4 = new JButton("Create Tree From File");
 		
 		b1.addActionListener((ActionEvent e) -> {
-			System.out.println("Insert");
-			JOptionPane.showMessageDialog(this, new InsertView(width, height, classTree));
+			JPanel insertPanel = new JPanel();
+			insertPanel.add(new JLabel("Insert a new Node"));
+			insertPanel.add(new JLabel("Enter the Student ID"));
+			JTextField studentIDLabel = new JTextField(10);
+			insertPanel.add(studentIDLabel);
+
+			insertPanel.add(new JLabel("Enter Faculty"));
+			JTextField facultyLabel = new JTextField(10);
+			insertPanel.add(facultyLabel);
+
+			insertPanel.add(new JLabel("Enter Student's Major"));
+			JTextField majorLabel = new JTextField(10);
+			insertPanel.add(majorLabel);
+
+			insertPanel.add(new JLabel("Enter year"));
+			JTextField yearLabel = new JTextField(10);
+			insertPanel.add(yearLabel);
+
+			Object[] options = {"Insert", "Return to Main Window"};
+
+			int result =  JOptionPane.showOptionDialog(null, insertPanel, "Insert a new Node",
+					JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
+
+			if(result == JOptionPane.YES_OPTION){
+				classTree.insert(studentIDLabel.getText(), facultyLabel.getText(), majorLabel.getText(), yearLabel.getText());
+			}
 		});
 		
 		b2.addActionListener((ActionEvent e) -> {
@@ -61,7 +85,7 @@ public class MainView extends JFrame{
 		titleLabel = new JLabel();
 		titleLabel.setText("An Application to Maintain Student Records");
 		
-		dataText = new JTextArea(15,40);
+		dataText = new JTextArea(height/25,width/15);
 		dataText.setLineWrap(true); //Allows text to wrap if it reaches the end of the line
 		dataText.setWrapStyleWord(true); //text should wrap at word boundaries rather than character boundaries
 		dataText.setEditable(false);

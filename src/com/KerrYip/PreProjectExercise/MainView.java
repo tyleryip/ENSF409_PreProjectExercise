@@ -35,23 +35,13 @@ public class MainView extends JFrame {
 		this.setSize(width, height);
 
 		classTree = new BinSearchTree();
-<<<<<<< HEAD
 	
 		insertButton = new JButton("Insert");
 		findButton = new JButton("Find");
 		browseButton = new JButton("Browse");
 		createButton = new JButton("Create Tree From File");
-		
+
 		insertButton.addActionListener((ActionEvent e) -> {
-=======
-
-		b1 = new JButton("Insert");
-		b2 = new JButton("Find");
-		b3 = new JButton("Browse");
-		b4 = new JButton("Create Tree From File");
-
-		b1.addActionListener((ActionEvent e) -> {
->>>>>>> a6788b5ca4467205958bd96b4a0eca3f0d8bd582
 			JPanel insertPanel = new JPanel();
 			insertPanel.setLayout(new BoxLayout(insertPanel, BoxLayout.PAGE_AXIS));
 			JPanel titlePanel = new JPanel();
@@ -86,13 +76,8 @@ public class MainView extends JFrame {
 						yearLabel.getText());
 			}
 		});
-<<<<<<< HEAD
-		
-		findButton.addActionListener((ActionEvent e) -> {
-=======
 
-		b2.addActionListener((ActionEvent e) -> {
->>>>>>> a6788b5ca4467205958bd96b4a0eca3f0d8bd582
+		findButton.addActionListener((ActionEvent e) -> {
 			String studentID = JOptionPane.showInputDialog("Please enter the student's id");
 			Node result = classTree.find(classTree.root, studentID);
 			if (result == null) {
@@ -101,25 +86,14 @@ public class MainView extends JFrame {
 				JOptionPane.showMessageDialog(null, result.toString());
 			}
 		});
-<<<<<<< HEAD
-		
-		browseButton.addActionListener((ActionEvent e) -> {
-			if(classTree.root != null) {
-				dataText.setText(classTree.toString());
-			}
-		});
-		
-		createButton.addActionListener((ActionEvent e) -> {
-=======
 
-		b3.addActionListener((ActionEvent e) -> {
+		browseButton.addActionListener((ActionEvent e) -> {
 			if (classTree.root != null) {
 				dataText.setText(classTree.toString());
 			}
 		});
 
-		b4.addActionListener((ActionEvent e) -> {
->>>>>>> a6788b5ca4467205958bd96b4a0eca3f0d8bd582
+		createButton.addActionListener((ActionEvent e) -> {
 			String filename = JOptionPane.showInputDialog("Enter the file name:");
 			if (filename != null) {
 				try {
@@ -150,21 +124,18 @@ public class MainView extends JFrame {
 		JPanel dataPanel = new JPanel();
 
 		setLayout(new BorderLayout());
-<<<<<<< HEAD
 		
 		buttonPanel.add(insertButton);
 		buttonPanel.add(findButton);
 		buttonPanel.add(browseButton);
 		buttonPanel.add(createButton);
 		
-=======
 
-		buttonPanel.add(b1);
-		buttonPanel.add(b2);
-		buttonPanel.add(b3);
-		buttonPanel.add(b4);
-
->>>>>>> a6788b5ca4467205958bd96b4a0eca3f0d8bd582
+		buttonPanel.add(insertButton);
+		buttonPanel.add(findButton);
+		buttonPanel.add(browseButton);
+		buttonPanel.add(createButton);
+		
 		titlePanel.add(titleLabel);
 		dataPanel.add(dataTextScrollPane);
 

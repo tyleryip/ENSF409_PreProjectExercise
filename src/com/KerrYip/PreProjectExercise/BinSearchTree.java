@@ -20,10 +20,10 @@ class BinSearchTree {
 	}
 
 	/**
-	 * the following constructor creates an tree from the input String array
+	 * the following method creates an tree from the input String array
 	 * @param classList the input String Array to be created in to empty
 	 */
-	public BinSearchTree(String[] classList){
+	public void insertList(String[] classList){
 		for(int i = 0; i < classList.length; i++){
 			String[] temp = classList[i].trim().split("\\s+");
 			insert(temp[0],temp[1],temp[2],temp[3]);

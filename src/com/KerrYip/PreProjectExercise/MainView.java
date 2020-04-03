@@ -89,7 +89,7 @@ public class MainView extends JFrame{
 			if(filename != null) {
 				try {
 					FileManager fm = new FileManager();
-					classTree = new BinSearchTree(fm.readFromFile(filename));
+					classTree.insertList(fm.readFromFile(filename));
 				}catch(FileNotFoundException ex){
 					JOptionPane.showMessageDialog(null,"File not found.");
 				}

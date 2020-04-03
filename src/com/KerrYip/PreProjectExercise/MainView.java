@@ -65,14 +65,13 @@ public class MainView extends JFrame{
 		dataText.setLineWrap(true); //Allows text to wrap if it reaches the end of the line
 		dataText.setWrapStyleWord(true); //text should wrap at word boundaries rather than character boundaries
 		dataText.setEditable(false);
-		dataText.setText("This is where we will import the data from the input text to display the students and their majors & faculty");
+		dataText.setText(""); //This displays empty text in the field
 		dataText.setEditable(false);
 		
 		JScrollPane dataTextScrollPane = new JScrollPane(dataText);
 		dataTextScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		
 		//The following code sets up the panels and layout
-		
 		JPanel buttonPanel = new JPanel();
 		JPanel titlePanel = new JPanel();
 		JPanel dataPanel = new JPanel();

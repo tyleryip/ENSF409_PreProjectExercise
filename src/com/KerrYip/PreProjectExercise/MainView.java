@@ -35,26 +35,27 @@ public class MainView extends JFrame{
 		b1.addActionListener((ActionEvent e) -> {
 			JPanel insertPanel = new JPanel();
 			insertPanel.setLayout(new BoxLayout(insertPanel, BoxLayout.PAGE_AXIS));
-			insertPanel.add(new JLabel("Insert a new Node"));
-			JPanel firstRowPanel = new JPanel();
-			firstRowPanel.add(new JLabel("Enter the Student ID"));
+			JPanel titlePanel = new JPanel();
+			titlePanel.add(new JLabel("Insert a new Node"));
+			insertPanel.add(titlePanel);
+
+			JPanel inputPanel1 = new JPanel();
+			inputPanel1.add(new JLabel("Enter the Student ID"));
 			JTextField studentIDLabel = new JTextField(5);
-			firstRowPanel.add(studentIDLabel);
-
-			firstRowPanel.add(new JLabel("Enter Faculty"));
+			inputPanel1.add(studentIDLabel);
+			inputPanel1.add(new JLabel("Enter Faculty"));
 			JTextField facultyLabel = new JTextField(10);
-			firstRowPanel.add(facultyLabel);
-			insertPanel.add(firstRowPanel);
+			inputPanel1.add(facultyLabel);
+			insertPanel.add(inputPanel1);
 
-			JPanel secondRowPanel = new JPanel();
-			secondRowPanel.add(new JLabel("Enter Student's Major"));
+			JPanel inputPanel2 = new JPanel();
+			inputPanel2.add(new JLabel("Enter Student's Major"));
 			JTextField majorLabel = new JTextField(15);
-			secondRowPanel.add(majorLabel);
-
-			secondRowPanel.add("South",new JLabel("Enter year"));
+			inputPanel2.add(majorLabel);
+			inputPanel2.add("South",new JLabel("Enter year"));
 			JTextField yearLabel = new JTextField(5);
-			secondRowPanel.add("South",yearLabel);
-			insertPanel.add(secondRowPanel);
+			inputPanel2.add("South",yearLabel);
+			insertPanel.add(inputPanel2);
 
 			Object[] options = {"Insert", "Return to Main Window"};
 

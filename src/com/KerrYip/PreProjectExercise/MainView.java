@@ -1,7 +1,6 @@
 package com.KerrYip.PreProjectExercise;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,29 +34,34 @@ public class MainView extends JFrame{
 		
 		b1.addActionListener((ActionEvent e) -> {
 			JPanel insertPanel = new JPanel();
+			insertPanel.setLayout(new BoxLayout(insertPanel, BoxLayout.PAGE_AXIS));
 			insertPanel.add(new JLabel("Insert a new Node"));
-			insertPanel.add(new JLabel("Enter the Student ID"));
-			JTextField studentIDLabel = new JTextField(10);
-			insertPanel.add(studentIDLabel);
+			JPanel firstRowPanel = new JPanel();
+			firstRowPanel.add(new JLabel("Enter the Student ID"));
+			JTextField studentIDLabel = new JTextField(5);
+			firstRowPanel.add(studentIDLabel);
 
-			insertPanel.add(new JLabel("Enter Faculty"));
+			firstRowPanel.add(new JLabel("Enter Faculty"));
 			JTextField facultyLabel = new JTextField(10);
-			insertPanel.add(facultyLabel);
+			firstRowPanel.add(facultyLabel);
+			insertPanel.add(firstRowPanel);
 
-			insertPanel.add(new JLabel("Enter Student's Major"));
-			JTextField majorLabel = new JTextField(10);
-			insertPanel.add(majorLabel);
+			JPanel secondRowPanel = new JPanel();
+			secondRowPanel.add(new JLabel("Enter Student's Major"));
+			JTextField majorLabel = new JTextField(15);
+			secondRowPanel.add(majorLabel);
 
-			insertPanel.add(new JLabel("Enter year"));
-			JTextField yearLabel = new JTextField(10);
-			insertPanel.add(yearLabel);
+			secondRowPanel.add("South",new JLabel("Enter year"));
+			JTextField yearLabel = new JTextField(5);
+			secondRowPanel.add("South",yearLabel);
+			insertPanel.add(secondRowPanel);
 
 			Object[] options = {"Insert", "Return to Main Window"};
 
 			int result =  JOptionPane.showOptionDialog(null, insertPanel, "Insert a new Node",
-					JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
+					JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
 
-			if(result == JOptionPane.YES_OPTION){
+			if(result == JOptionPane.OK_OPTION){
 				classTree.insert(studentIDLabel.getText(), facultyLabel.getText(), majorLabel.getText(), yearLabel.getText());
 			}
 		});

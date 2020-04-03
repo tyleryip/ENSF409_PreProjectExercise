@@ -77,7 +77,9 @@ public class MainView extends JFrame{
 		});
 		
 		b3.addActionListener((ActionEvent e) -> {
-			dataText.setText(classTree.toString());
+			if(!classTree.toString().contentEquals(null)) {
+				dataText.setText(classTree.toString());
+			}
 		});
 		
 		b4.addActionListener((ActionEvent e) -> {
